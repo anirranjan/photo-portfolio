@@ -10,16 +10,16 @@ const port = process.env.PORT || 3001;
 app.use(cors())
 
 const s3Client = new S3Client({
-  region: process.env.AWS_REGION,
+  region: process.env.REGION,
   credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    accessKeyId: process.env.ACCESSKEY,
+    secretAccessKey: process.env.SECRETKEY,
   },
 });
 
 app.get('/image-urls', async (req, res) => {
   const params = {
-    Bucket: process.env.AWS_BUCKET,
+    Bucket: process.env.BUCKET,
   };
 
   try {
@@ -43,4 +43,3 @@ app.get('/image-urls', async (req, res) => {
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
-
