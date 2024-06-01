@@ -43,7 +43,7 @@ const Navbar = () => {
   return (
     <Box bg="gray.100" px={4}>
       <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-        <Image borderRadius='full' boxSize='50px' src="./IMG_4233.jpg" alt="logo"/>
+        <Image borderRadius='full' boxSize='50px' src="./logo.jpg" alt="logo"/>
         <HStack spacing={8} alignItems={"center"}>
           <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
             {Links.map((link) => (
