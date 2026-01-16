@@ -20,7 +20,7 @@ const AboutPage = () => {
         mb={{ base: 4, lg: 0 }}
       >
         <Image
-          src="/IMG_1461.jpg"
+          src="/profile-photo.jpg"
           alt="Nirranjan"
           width="100%"
           height="auto"
