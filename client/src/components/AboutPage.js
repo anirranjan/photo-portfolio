@@ -4,39 +4,53 @@ import { FaInstagram } from "react-icons/fa";
 
 const AboutPage = () => {
   return (
-    <Box p={8} display={{ md: "flex" }} alignItems="center">
+    <Box
+      p={8}
+      maxW="1000px"
+      mx="auto"
+      display={{ lg: "flex" }}
+      alignItems="center"
+      gap={{ base: 4, lg: 6 }}
+    >
+      {/* Image */}
       <Box
-        flex={{ base: "1", md: "1" }}
-        mb={{ base: 4, md: 0 }}
-        order={{ base: 2, md: 1 }}
-        maxW="90%"
+        width={{ base: "100%", lg: "320px" }}
+        flexShrink={0}
+        order={{ base: 2, lg: 1 }}
+        mb={{ base: 4, lg: 0 }}
       >
-        <Image src="/IMG_3389.jpg" alt="Nirranjan" />
+        <Image
+          src="/IMG_1461.jpg"
+          alt="Nirranjan"
+          width="100%"
+          height="auto"
+          borderRadius="md"
+        />
       </Box>
-      <Box
-        flex={{ base: "1", md: "2" }}
-        ml={{ base: 0, md: 4 }}
-        order={{ base: 1, md: 2 }}
-      >
-        <Box>
-          <Heading size="md">Hi, I'm Nirranjan.</Heading>
-          <Text>
-            I am a car and portrait photographer based in Dallas. I started off
-            photography with my phone, but got more serious after investing in
-            my first camera. Contact me today to book your photoshoot!
-          </Text>
-          <Button
-            leftIcon={<FaInstagram />}
-            as="a"
-            href="https://www.instagram.com/nirranjan.media"
-            target="_blank"
-            rel="noopener noreferrer"
-            colorScheme="teal"
-            mt={4}
-          >
-            Instagram
-          </Button>
-        </Box>
+
+      {/* Text */}
+      <Box flex="1" order={{ base: 1, lg: 2 }}>
+        <Heading size="md" mb={2}>
+          Hi, I'm Nirranjan.
+        </Heading>
+
+        <Text mb={4}>
+          I’m a Dallas-based car and portrait photographer. I’ve photographed
+          motorsport events, graduations, festivals, and corporate events. My
+          goal is to capture happy moments and accomplishments. Contact me today
+          to book your photoshoot.
+        </Text>
+
+        <Button
+          leftIcon={<FaInstagram />}
+          as="a"
+          href="https://www.instagram.com/nirranjan.media"
+          target="_blank"
+          rel="noopener noreferrer"
+          colorScheme="red"
+        >
+          Instagram
+        </Button>
       </Box>
     </Box>
   );
