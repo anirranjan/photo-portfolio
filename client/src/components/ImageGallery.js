@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Masonry from "react-masonry-css";
-import { Grid, Image, Box } from "@chakra-ui/react";
+import { Image, Box } from "@chakra-ui/react";
 import axios from "axios";
 
 const ImageGallery = () => {

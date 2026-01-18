@@ -1,8 +1,11 @@
 import React from "react";
 import { Box, Heading, Text, Image, Button } from "@chakra-ui/react";
-import { FaInstagram } from "react-icons/fa";
+import { FaEnvelope } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const AboutPage = () => {
+  const navigate = useNavigate();
+
   return (
     <Box
       p={8}
@@ -34,22 +37,19 @@ const AboutPage = () => {
           Hi, I'm Nirranjan.
         </Heading>
 
-        <Text mb={4}>
+        <Text mb={4} fontSize="large">
           I’m a Dallas-based car and portrait photographer. I’ve photographed
           motorsport events, graduations, festivals, and corporate events. My
-          goal is to capture happy moments and accomplishments. Contact me today
-          to book your photoshoot.
+          goal is to capture happy moments and accomplishments through photo and
+          video.
         </Text>
 
         <Button
-          leftIcon={<FaInstagram />}
-          as="a"
-          href="https://www.instagram.com/nirranjan.media"
-          target="_blank"
-          rel="noopener noreferrer"
-          colorScheme="red"
+          leftIcon={<FaEnvelope />}
+          colorScheme="blue"
+          onClick={() => navigate("/contact")}
         >
-          Instagram
+          Contact Me
         </Button>
       </Box>
     </Box>

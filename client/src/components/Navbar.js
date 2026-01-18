@@ -16,6 +16,7 @@ import { FaInstagram } from "react-icons/fa";
 const Links = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
+  { name: "Contact", path: "/contact"},
 ];
 
 const NavLink = (props) => {
