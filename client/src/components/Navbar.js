@@ -15,6 +15,7 @@ import { FaInstagram } from "react-icons/fa";
 
 const Links = [
   { name: "Home", path: "/" },
+  { name: "Pricing", path: "/pricing"},
   { name: "About", path: "/about" },
   { name: "Contact", path: "/contact"},
 ];
@@ -44,7 +45,7 @@ const Navbar = () => {
   return (
     <Box bg="gray.100" px={4}>
       <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-        <Image boxSize='50px' src="./new-logo-final.png" alt="logo"/>
+        <Image boxSize='50px' src="./nirranjan-media-logo-new.png" alt="logo"/>
         <HStack spacing={8} alignItems={"center"}>
           <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
             {Links.map((link) => (

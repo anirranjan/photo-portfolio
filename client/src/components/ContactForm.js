@@ -14,7 +14,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
-import axios from "axios";
+import useWeb3Forms from "@web3forms/react";
 
 const ContactForm = () => {
   const toast = useToast();
@@ -26,34 +26,33 @@ const ContactForm = () => {
     formState: { errors, isSubmitting },
   } = useForm({ mode: "onSubmit" });
 
-  const onSubmit = async (data) => {
-    try {
-      await axios.post("https://u2k1rag660.execute-api.us-east-2.amazonaws.com/dev/contact", {
-        name: data.name,
-        email: data.email,
-        message: data.message
-      })
-
+  const accessKey = "bae7b6ca-3b52-48f3-937c-8e688aa2220c";
+  const { submit: onSubmit } = useWeb3Forms({
+    access_key: accessKey,
+    settings: {
+      from_name: "Website",
+      subject: "New Contact Message from your Website",
+    },
+    onSuccess: (msg) => {
       toast({
         title: "Message sent!",
-        description: "Thanks — I’ll get back to you soon.",
+        description: msg,
         status: "success",
         duration: 4000,
         isClosable: true,
       });
-
-      reset();
-    } catch (error) {
-      console.error(error);
+      reset()
+    },
+    onError: (msg) => {
       toast({
         title: "Failed to send message",
-        description: "Please try again later or email me directly.",
-        status: "error",
-        duration: 5000,
+        description: msg,
+        status: "success",
+        duration: 4000,
         isClosable: true,
       });
     }
-  };
+  });
 
   return (
     <Container maxW="container.md" py={{ base: 10, md: 16 }}>
@@ -87,9 +86,7 @@ const ContactForm = () => {
                     placeholder="Name"
                     size={{ base: "md", md: "lg" }}
                   />
-                  <FormErrorMessage>
-                    {errors.name?.message}
-                  </FormErrorMessage>
+                  <FormErrorMessage>{errors.name?.message}</FormErrorMessage>
                 </FormControl>
               </GridItem>
 
@@ -106,9 +103,7 @@ const ContactForm = () => {
                     placeholder="Email"
                     size={{ base: "md", md: "lg" }}
                   />
-                  <FormErrorMessage>
-                    {errors.email?.message}
-                  </FormErrorMessage>
+                  <FormErrorMessage>{errors.email?.message}</FormErrorMessage>
                 </FormControl>
               </GridItem>
             </Grid>
@@ -122,9 +117,7 @@ const ContactForm = () => {
                 rows={6}
                 resize="vertical"
               />
-              <FormErrorMessage>
-                {errors.message?.message}
-              </FormErrorMessage>
+              <FormErrorMessage>{errors.message?.message}</FormErrorMessage>
             </FormControl>
 
             {/* Submit */}
